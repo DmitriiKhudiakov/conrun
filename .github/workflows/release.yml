@@ -21,6 +21,7 @@ jobs:
       - name: Install deps
         run: |
           pip install --upgrade uv
+          uv venv .venv
           uv pip install --upgrade build twine
       
       - name: Build package
