@@ -22,14 +22,10 @@ jobs:
         run: |
           pip install --upgrade uv
           uv venv .venv
-          uv pip install --upgrade build twine
+          uv pip install --upgrade build
       
       - name: Build package
         run: uv run python -m build --sdist --wheel --outdir dist
-      
-      - name: Twine check
-        run: |
-          uv run twine check dist/*
       
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
