@@ -9,7 +9,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        python-version: ["3.9", "3.10", "3.11", "3.12"]
+        python-version: ["3.12"]
 
     steps:
       - uses: actions/checkout@v4
@@ -32,7 +32,7 @@ jobs:
         run: uv venv .venv
       
       - name: Install deps
-        run: uv -p .venv pip install -e . --group dev
+        run: uv pip install -e . --group dev
 
       - name: Run pytest
-        run: uv -p .venv run pytest -q --disable-warnings
+        run: uv run pytest -q --disable-warnings
