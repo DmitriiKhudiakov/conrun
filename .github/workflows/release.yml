@@ -1,13 +1,12 @@
 name: Publish to PyPI
 
 on:
-  push:
-    tags: [ 'v*' ]
-    branches: [ main ]
+  release:
+    types: [released]
 
 jobs:
   build-and-publish:
-    environment: pypi
+    environment: pypi 
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -19,8 +18,10 @@ jobs:
         with:
           python-version: "3.13"
       
-      - name: Install build backend
-        run: pip install --upgrade uv build twine
+      - name: Install deps
+        run: |
+          pip install --upgrade uv
+          uv pip install --upgrade build twine
       
       - name: Build package
         run: uv run python -m build --sdist --wheel --outdir dist
