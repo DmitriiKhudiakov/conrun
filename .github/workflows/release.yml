@@ -1,13 +1,12 @@
 name: Publish to PyPI
 
 on:
-  push:
-    tags: [ 'v*' ]
-    branches: [ main ]
+  release:
+    types: [released]
 
 jobs:
   build-and-publish:
-    environment: pypi
+    environment: pypi 
     runs-on: ubuntu-latest
     permissions:
       id-token: write
