@@ -1,0 +1,36 @@
+name: Publish to PyPI
+
+on:
+  push:
+    tags: [ 'v*' ]
+    branches: [ main ]
+
+jobs:
+  build-and-publish:
+    environment: pypi
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      
+      - name: Install build backend
+        run: pip install --upgrade uv build twine
+      
+      - name: Build package
+        run: uv run python -m build --sdist --wheel --outdir dist
+      
+      - name: Twine check
+        run: |
+          twine check dist/*
+      
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          skip-existing: true
+          verify-metadata: true

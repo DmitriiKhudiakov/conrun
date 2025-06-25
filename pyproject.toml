@@ -5,7 +5,7 @@ description = "Simple concurrent runner for threads, processes, and async tasks"
 authors = [{ name = "Dmitrii Khudiakov" }]
 license = { text = "MIT" }
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 keywords = ["concurrent", "asyncio", "parallel", "threads", "tasks"]
 
 classifiers = [
