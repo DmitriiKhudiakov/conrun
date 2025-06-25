@@ -25,23 +25,11 @@ jobs:
           path: ~/.cache/uv
           key: uv-${{ matrix.python-version }}-${{ hashFiles('pyproject.toml', 'uv.lock') }}
 
-      - name: Create venv & install deps
-        shell: bash
-        run: |
-          python -m venv .venv
-
-          if [[ "$RUNNER_OS" == "Windows" ]]; then
-            source .venv/Scripts/activate
-          else
-            source .venv/bin/activate
-          fi
-          
-          source .venv/bin/activate
-          pip install --upgrade uv
-          uv pip install -e . --group dev
+      - name: Create venv
+        run: uv venv .venv
+      
+      - name: Install deps
+        run: uv -p .venv pip install -e . --group dev
 
       - name: Run pytest
-        shell: bash
-        run: |
-          source .venv/bin/activate
-          uv run pytest -q --disable-warnings
+        run: uv -p .venv run pytest -q --disable-warnings
