@@ -29,3 +29,6 @@ dist/
 htmlcov/
 .cache/
 .pytest_cache/
+
+# Personal notes 
+/NOTES.md

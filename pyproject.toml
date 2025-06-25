@@ -1,6 +1,6 @@
 [project]
 name = "conrun"
-version = "0.1.0"
+version = "0.1.1"
 description = "Simple concurrent runner for threads, processes, and async tasks"
 authors = [{ name = "Dmitrii Khudiakov" }]
 license = { text = "MIT" }
@@ -16,6 +16,18 @@ classifiers = [
     "Topic :: Utilities",
 ]
 
+[project.urls]
+Homepage   = "https://github.com/DmitriiKhudiakov/conrun"
+Repository = "https://github.com/DmitriiKhudiakov/conrun"
+Issues     = "https://github.com/DmitriiKhudiakov/conrun/issues"
+Changelog  = "https://github.com/DmitriiKhudiakov/conrun/releases"
+
 [build-system]
 requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+    "pytest-asyncio>=0.24.0",
+]
