@@ -1,6 +1,6 @@
 [project]
 name = "conrun"
-version = "0.1.2"
+version = "0.1.3"
 description = "Simple concurrent runner for threads, processes, and async tasks"
 authors = [{ name = "Dmitrii Khudiakov" }]
 license = { text = "MIT" }
