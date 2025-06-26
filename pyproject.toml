@@ -1,6 +1,6 @@
 [project]
 name = "conrun"
-version = "0.1.1"
+version = "0.1.2"
 description = "Simple concurrent runner for threads, processes, and async tasks"
 authors = [{ name = "Dmitrii Khudiakov" }]
 license = { text = "MIT" }
@@ -10,6 +10,10 @@ keywords = ["concurrent", "asyncio", "parallel", "threads", "tasks"]
 
 classifiers = [
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Topic :: Software Development :: Libraries",
